@@ -5,6 +5,8 @@ import lk.icet.spring.test.service.custom.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/student")
 public class StudentApi {
@@ -18,7 +20,12 @@ public class StudentApi {
     }
 
     @GetMapping
-    public Student getStdent(@RequestParam Long id){
+    public Student getStudent(@RequestParam Long id){
         return service.getStudent(id);
+    }
+
+    @GetMapping("/{name}")
+    public List<Student> getByName(@PathVariable String name){
+        return service.findByFirstName(name);
     }
 }

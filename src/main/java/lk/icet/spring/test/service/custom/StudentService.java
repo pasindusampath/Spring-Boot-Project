@@ -10,4 +10,6 @@ public interface StudentService {
     Student getStudent(Long id);
 
     List<Student> getAllStudents();
+
+    List<Student> findByFirstName(String name);
 }

@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -29,6 +30,16 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> getAllStudents() {
         return null;
+    }
+
+    @Override
+    public List<Student> findByFirstName(String name) {
+        Iterable<StudentEntity> byName = repo.findByName(name);
+        ArrayList<Student> list = new ArrayList<>();
+        for (StudentEntity studentEntity : byName) {
+            list.add(modelMapper.map(studentEntity, Student.class));
+        }
+        return list;
     }
 
 }
