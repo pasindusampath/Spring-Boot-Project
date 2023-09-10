@@ -18,4 +18,5 @@ public class StudentEntity {
     private String mobile;
     private String gmail;
     private String address;
+    private String gender;
 }

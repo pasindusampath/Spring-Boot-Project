@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/student")
+@CrossOrigin
 public class StudentApi {
     @Autowired
     private StudentService service;
